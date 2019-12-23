@@ -150,8 +150,8 @@ public class GpsUtils {
     /**
      * 获取从2000年到date一共有多少天
      *
-     * @param date
-     *            ：输入格林尼志日期
+     * @param year
+     *            输入格林尼志日期
      * @return 总共天数
      */
     public static int getAllDays(int year, int month, int day) {
@@ -538,7 +538,7 @@ public class GpsUtils {
     /**
      * 对CELL ID进行转换
      *
-     * @param [in] id: 待转换的CELL ID
+     * @param id: 待转换的CELL ID
      * @return 转换后的CELL ID
      */
     public static int changeCellId(int id) {
@@ -794,7 +794,7 @@ public class GpsUtils {
     /**
      * 获取数据区带进位累加校验码
      *
-     * @param byteData数据
+     * @param byteData 数据
      * @return 单字节带进位累加校验码
      */
     public static byte getChkSum(byte[] byteData) {
@@ -817,7 +817,7 @@ public class GpsUtils {
     /**
      * 计算累加和 (使用时确保要计算累加和数据长度是byteData的长度)
      *
-     * @param byteData数据体
+     * @param byteData 数据体
      * @return 累加和
      */
     public static int CalCheckSum(byte[] byteData) {
@@ -827,7 +827,7 @@ public class GpsUtils {
     /**
      * 计算累加和
      *
-     * @param byteData数据体
+     * @param byteData 数据体
      * @param len
      *            数据长度
      * @return 累加和
@@ -856,7 +856,7 @@ public class GpsUtils {
     /**
      * 将字节数组转成整数(大端模式,高字节在低位即byteArray[0])
      *
-     * @param byteArray
+     * @param byteData
      * @return 整数
      */
     public static int byteArrayToInt(byte[] byteData) {
@@ -897,7 +897,7 @@ public class GpsUtils {
     /**
      * 整形转数组
      *
-     * @param intValue
+     * @param value
      * @return
      */
     public static byte[] intToByteArray(int value) {
@@ -961,7 +961,7 @@ public class GpsUtils {
     /**
      * 将数组转化为arraylist
      *
-     * @param arraylist
+     * @param src
      * @return 数组
      */
     public static ArrayList<Integer> getArrayListByIntegerArray(int[] src) {
@@ -1127,7 +1127,7 @@ public class GpsUtils {
     /**
      * 将整型数组根据分隔符整合成一个字符串
      *
-     * @param strArray
+     * @param intArray
      * @param split
      * @return
      */
@@ -1763,8 +1763,6 @@ public class GpsUtils {
      *
      * @param inputStream
      *            输入流
-     * @param encoding
-     *            编码格式
      * @return 转换后的字符串
      * @throws Exception
      */

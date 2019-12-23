@@ -274,77 +274,77 @@ public class PlayPoker24 extends Activity {
      */
     public void exhaustiveCalc(int a, int b, int c, int d) {
         // a
-        caluate(a, b, c, d);
+        calculate(a, b, c, d);
         if (c != d) {
-            caluate(a, b, d, c);
+            calculate(a, b, d, c);
         }
         if (b != c) {
-            caluate(a, c, b, d);
+            calculate(a, c, b, d);
         }
         if (b != c && b != d) {
-            caluate(a, c, d, b);
+            calculate(a, c, d, b);
         }
         if (b != d && c != d) {
-            caluate(a, d, b, c);
+            calculate(a, d, b, c);
         }
         if (b != c && b != d && c != d) {
-            caluate(a, d, c, b);
+            calculate(a, d, c, b);
         }
         // b
         if (a != b) {
-            caluate(b, a, c, d);
+            calculate(b, a, c, d);
             if (c != d) {
-                caluate(b, a, d, c);
+                calculate(b, a, d, c);
             }
             if (a != c) {
-                caluate(b, c, a, d);
+                calculate(b, c, a, d);
             }
             if (a != d && a != c) {
-                caluate(b, c, d, a);
+                calculate(b, c, d, a);
             }
             if (c != d && a != d) {
-                caluate(b, d, c, a);
+                calculate(b, d, c, a);
             }
             if (a != c && a != d && c != d) {
-                caluate(b, d, a, c);
+                calculate(b, d, a, c);
             }
         }
         // c
         if (a != c && b != c) {
-            caluate(c, a, b, d);
+            calculate(c, a, b, d);
             if (b != d) {
-                caluate(c, a, d, b);
+                calculate(c, a, d, b);
             }
             if (a != b) {
-                caluate(c, b, a, d);
+                calculate(c, b, a, d);
             }
             if (a != b && a != d) {
-                caluate(c, b, d, a);
+                calculate(c, b, d, a);
             }
             if (a != d && b != d) {
-                caluate(c, d, a, b);
+                calculate(c, d, a, b);
             }
             if (a != b && a != d && b != d) {
-                caluate(c, d, b, a);
+                calculate(c, d, b, a);
             }
         }
         // d
         if (a != d && b != d && c != d) {
-            caluate(d, a, b, c);
+            calculate(d, a, b, c);
             if (b != c) {
-                caluate(d, a, c, b);
+                calculate(d, a, c, b);
             }
             if (a != b) {
-                caluate(d, b, c, a);
+                calculate(d, b, c, a);
             }
             if (a != b && a != c) {
-                caluate(d, b, a, c);
+                calculate(d, b, a, c);
             }
             if (a != c && b != c) {
-                caluate(d, c, a, b);
+                calculate(d, c, a, b);
             }
             if (a != b && a != c && b != c) {
-                caluate(d, c, b, a);
+                calculate(d, c, b, a);
             }
         }
     }
@@ -352,12 +352,12 @@ public class PlayPoker24 extends Activity {
     /**
      * 根据所有可能的算式组合计算, 获取满足条件的算式文本列表
      *
-     * @param a
-     * @param b
-     * @param c
-     * @param d
+     * @param a 第一个数字
+     * @param b 第二个数字
+     * @param c 第三个数字
+     * @param d 第四个数字
      */
-    private void caluate(int a, int b, int c, int d) {
+    private void calculate(int a, int b, int c, int d) {
         if (a <= b && b <= c && c <= d && a + b + c + d == 24) {
             mResultArray.add(String.format("%d+%d+%d+%d ", a, b, c, d));
         }
@@ -484,5 +484,6 @@ public class PlayPoker24 extends Activity {
         if (b <= c && (a - b * c) * d == 24) {
             mResultArray.add(String.format("(%d-(%d×%d))×%d ", a, b, c, d));
         }
+        System.out.println("result size=" + mResultArray.size());
     }
 }

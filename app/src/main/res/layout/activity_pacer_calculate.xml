@@ -5,11 +5,11 @@
     android:background="@color/bar_background_gray"
     android:orientation="vertical" >
 
-    <com.samuel.common.CommonTitleView
+    <com.example.simplepoker.common.CommonTitleView
         android:id="@+id/title_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-    </com.samuel.common.CommonTitleView>
+    </com.example.simplepoker.common.CommonTitleView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/margin_content"
             android:layout_marginStart="@dimen/margin_content"
-            android:text="正则表达式:"
+            android:text="每公里配速:"
             android:textColor="@color/text_color_new"
             android:textSize="@dimen/text_size_content" />
 
@@ -55,7 +55,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/margin_small"
             android:layout_marginStart="@dimen/margin_small"
-            android:text="测试语句"
+            android:text="全程用时: "
             android:textColor="@color/text_color_new"
             android:textSize="@dimen/text_size_content" />
 
@@ -80,7 +80,7 @@
         android:layout_marginRight="@dimen/margin_medium"
         android:background="@color/green" />
 
-    <com.samuel.common.TableView
+    <com.example.simplepoker.common.TableView
         android:id="@+id/table_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
