@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <com.example.simplepoker.common.CommonTitleView
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/test_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/margin_medium"
+                android:text="@string/app_name"
+                android:textSize="@dimen/text_size_normal" />
+
+            <EditText
+                android:id="@+id/test_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:hint="test input"
+                android:inputType="text"
+                android:maxLength="20"
+                android:padding="@dimen/margin_medium"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_normal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/test_button1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/please_select"
+                    android:textSize="@dimen/text_size_large" />
+
+                <Button
+                    android:id="@+id/test_button2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="页面跳转"
+                    android:textSize="@dimen/text_size_large" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/test_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="20dip"
+                android:padding="@dimen/margin_small"
+                android:background="@color/white"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_content" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_size_normal">
+
+                <RadioButton
+                    android:id="@+id/radio_button1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="button1"
+                    android:textSize="@dimen/text_size_normal" />
+                <RadioButton
+                    android:id="@+id/radio_button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="button2"
+                    android:textSize="@dimen/text_size_normal" />
+                <RadioButton
+                    android:id="@+id/radio_button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_small"
+                    android:text="button3"
+                    android:textSize="@dimen/text_size_normal" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dip"
+                android:orientation="horizontal" >
+
+                <!-- 价格规范选择项 -->
+
+                <CheckBox
+                    android:id="@+id/manager_check1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="@dimen/margin_large"
+                    android:text="价格规范"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_titlebtn" />
+                <!-- 陈列达标选择项 -->
+
+                <CheckBox
+                    android:id="@+id/manager_check2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="@dimen/margin_large"
+                    android:text="陈列达标"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_titlebtn" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/test_listview1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/text_size_normal"
+                android:divider="@drawable/list_line"
+                android:fadingEdge="none"
+                android:scrollbars="none" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

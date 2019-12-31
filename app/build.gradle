@@ -24,6 +24,8 @@ android {
         buildConfigField 'String', 'API_SERVER_URL_MALL', RELEASE_API_SERVER_URL_MALL
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"  //junit4 相关配置
         // signingConfig signingConfigs.signingConfig
+
+        testInstrumentationRunnerArguments clearPackageData: 'true' // 执行instrumentation测试时清除缓存
     }
     buildTypes {
         release {
@@ -43,6 +45,7 @@ android {
             buildConfigField 'String', 'IM_SERVER_HOST', RELEASE_IM_SERVER_HOST
             buildConfigField 'int', 'IM_SERVER_PORT', RELEASE_IM_SERVER_PORT
             buildConfigField "boolean", "LEO_DEBUG", RELEASE_LEO_DEBUG
+            testCoverageEnabled = true // 打开覆盖率统计开关
         }
     }
 

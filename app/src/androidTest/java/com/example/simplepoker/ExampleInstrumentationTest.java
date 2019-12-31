@@ -3,8 +3,6 @@ package com.example.simplepoker;
 import android.content.Context;
 import android.test.suitebuilder.annotation.MediumTest;
 
-import com.example.simplepoker.MyApplication;
-
 import org.junit.Before;
 import org.junit.Test;
 

@@ -3,13 +3,10 @@ package com.example.simplepoker;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,6 +15,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity {
     private ArrayList<Modules> mToolList;
+    private static final String STRING_TO_BE_TYPED = "UiAutomator";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +24,23 @@ public class MainActivity extends Activity {
 
         initTitle();
         initList();
-        ToolListAdapter adapter = new ToolListAdapter();
-        ListView listView = (ListView) findViewById(R.id.listview_tools);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new OnItemClickListener() {
 
+        Button btnChangeText = (Button) findViewById(R.id.changeTextBt);
+        btnChangeText.setOnClickListener(new OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (mToolList != null && mToolList.size() > position) {
-                    Intent intent = new Intent();
-                    intent.setClass(MainActivity.this, mToolList.get(position).moduleClass);
-                    startActivity(intent);
-                }
+            public void onClick(View v) {
+                TextView textView = (TextView) findViewById(R.id.textToBeChanged);
+                textView.setText(STRING_TO_BE_TYPED);
+            }
+        });
+
+        Button btnChangeActivity = (Button) findViewById(R.id.activityChangeTextBtn);
+        btnChangeActivity.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Second button's interaction: start an activity and send a message to it.
+                Intent intent = ShowTextActivity.newStartIntent(MainActivity.this, STRING_TO_BE_TYPED);
+                startActivity(intent);
             }
         });
     }
@@ -84,7 +87,7 @@ public class MainActivity extends Activity {
     }
 
     private void initList() {
-        mToolList = new ArrayList<Modules>();
+        mToolList = new ArrayList<>();
 //        mToolList.add(new Modules("贷款计算器", CalcLoanActivity.class));
 //        mToolList.add(new Modules("投资收益计算", CalcInvestActivity.class)); // 投资计算器
         mToolList.add(new Modules("24点游戏", PlayPoker24.class));
@@ -92,64 +95,26 @@ public class MainActivity extends Activity {
 //        mToolList.add(new Modules("图像识别", PhotoDetectActivity.class));
 //        mToolList.add(new Modules("姓名统计", SearchNameActivity.class));
         mToolList.add(new Modules("配速计算器", PacerCalculate.class));
-//        mToolList.add(new Modules("Eco数据分析", EcoDataTest.class));
+        mToolList.add(new Modules("UI测试", TotalViewActivity.class));
 //        mToolList.add(new Modules("正则表达式", PatternMatchTest.class));
+
+        ListView listView = (ListView) findViewById(R.id.listview_tools);
+        listView.setAdapter(new ToolListAdapter(mToolList, MainActivity.this));
+        listView.setOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (mToolList != null && mToolList.size() > position) {
+                    Intent intent = new Intent();
+                    intent.setClass(MainActivity.this, mToolList.get(position).moduleClass);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     private void copyDbFile() {
 
-    }
-
-    private class ToolListAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            if (mToolList != null) {
-                return mToolList.size();
-            }
-            return 0;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return mToolList.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
-            if (convertView == null) {
-                LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
-                convertView = inflater.inflate(R.layout.common_listview_item, parent, false);
-                holder = new ViewHolder();
-                holder.txtView = (TextView) convertView.findViewById(R.id.text);
-                holder.txtView.setText(mToolList.get(position).name);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-            return convertView;
-        }
-
-        class ViewHolder {
-            TextView txtView;
-            // ImageView image;
-        }
-    }
-
-    private class Modules {
-        String name;
-        Class<?> moduleClass;
-
-        Modules(String name, Class<?> className) {
-            this.name = name;
-            this.moduleClass = className;
-        }
     }
 
 }
