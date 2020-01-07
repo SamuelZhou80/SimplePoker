@@ -22,6 +22,12 @@ public class PacerCalculateTest {
     public ActivityScenarioRule<PacerCalculate> activityRule =
             new ActivityScenarioRule<>(PacerCalculate.class);
 
+    @Test
+    public void testPacerCalculate() {
+        onView(withId(R.id.edit_speed)).perform(typeText("605"), closeSoftKeyboard());
+        onView(withId(R.id.button_1)).perform(click());
+    }
+
 //    @Before
 //    public void intentsInit() {
 //        // initialize Espresso Intents capturing
@@ -33,10 +39,4 @@ public class PacerCalculateTest {
 //        // release Espresso Intents capturing
 //        Intents.release();
 //    }
-
-    @Test
-    public void testPacerCalculate() {
-        onView(withId(R.id.edit_speed)).perform(typeText("605"), closeSoftKeyboard());
-        onView(withId(R.id.button_1)).perform(click());
-    }
 }
